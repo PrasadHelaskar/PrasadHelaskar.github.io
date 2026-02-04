@@ -161,3 +161,32 @@ footer {
 .project-links {
   margin-top: auto;
 }
+
+/* ===== GRID / CARD FIX ===== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+.project-card {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.5;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-links {
+  margin-top: auto;
+}

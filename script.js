@@ -24,6 +24,8 @@ function mapTech(repo) {
   return [...tags];
 }
 
+/* ---------------- CARD RENDER ---------------- */
+
 function renderCard(repo) {
   const card = document.createElement("div");
   card.className = "project-card";
@@ -46,7 +48,7 @@ function renderCard(repo) {
   return card;
 }
 
-/* ---------------- FEATURED (from JSON) ---------------- */
+/* ---------------- FEATURED (PINNED) ---------------- */
 
 fetch("featured.json")
   .then(res => res.json())
@@ -54,9 +56,13 @@ fetch("featured.json")
     pinned.forEach(repo => {
       featuredContainer.appendChild(renderCard(repo));
     });
+  })
+  .catch(() => {
+    featuredContainer.innerHTML =
+      "<p style='color:#94a3b8'>Unable to load featured repos.</p>";
   });
 
-/* ---------------- ALL REPOS (exclude featured + meta repos) ---------------- */
+/* ---------------- ALL PROJECTS ---------------- */
 
 fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`)
   .then(res => res.json())
@@ -70,12 +76,10 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
 
         repos
           .filter(r => !r.fork && !r.archived)
-          // remove site + profile repo
           .filter(r =>
             r.name !== `${username}.github.io` &&
             r.name !== username
           )
-          // remove pinned from "All"
           .filter(r => !featuredNames.has(r.name))
           .slice(0, 12)
           .forEach(repo => {
@@ -91,4 +95,8 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
 
           });
       });
+  })
+  .catch(() => {
+    allContainer.innerHTML =
+      "<p style='color:#94a3b8'>Unable to load repositories.</p>";
   });

@@ -45,7 +45,8 @@ function renderCard(repo) {
          target="_blank"
          class="project-link"
          data-project="${repo.name}">
-         Repo
+         
+         View Repository →
       </a>
     </div>
   `;

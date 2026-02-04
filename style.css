@@ -190,3 +190,39 @@ footer {
 .project-links {
   margin-top: auto;
 }
+
+/* ===== TEXT OVERFLOW FIX ===== */
+
+.project-card h3 {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
+}
+
+.project-card {
+  overflow: hidden;
+}
+
+/* ===== PROFILE IMAGE ===== */
+
+.profile-pic {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  margin-bottom: 22px;
+
+  border: 3px solid rgba(56,189,248,0.8);
+  box-shadow: 0 0 30px rgba(56,189,248,0.35);
+
+  background: #020617;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+}

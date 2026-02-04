@@ -56,25 +56,30 @@ fetch("featured.json")
     });
   });
 
-/* ---------------- ALL REPOS (exclude featured) ---------------- */
+/* ---------------- ALL REPOS (exclude featured + meta repos) ---------------- */
 
 fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`)
   .then(res => res.json())
   .then(repos => {
 
-    const featuredNames = new Set();
-
-    // collect pinned names first
     fetch("featured.json")
       .then(r => r.json())
       .then(pinned => {
-        pinned.forEach(p => featuredNames.add(p.name));
+
+        const featuredNames = new Set(pinned.map(p => p.name));
 
         repos
           .filter(r => !r.fork && !r.archived)
+          // remove site + profile repo
+          .filter(r =>
+            r.name !== `${username}.github.io` &&
+            r.name !== username
+          )
+          // remove pinned from "All"
           .filter(r => !featuredNames.has(r.name))
           .slice(0, 12)
           .forEach(repo => {
+
             allContainer.appendChild(
               renderCard({
                 name: repo.name,
@@ -83,6 +88,7 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
                 language: repo.language
               })
             );
+
           });
       });
   });

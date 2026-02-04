@@ -41,7 +41,12 @@ function renderCard(repo) {
     <div class="badges">${badges}</div>
 
     <div class="project-links">
-      <a href="${repo.url}" target="_blank">Repo</a>
+      <a href="${repo.url}"
+         target="_blank"
+         class="project-link"
+         data-project="${repo.name}">
+         Repo
+      </a>
     </div>
   `;
 

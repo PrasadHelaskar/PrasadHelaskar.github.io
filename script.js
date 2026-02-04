@@ -1,7 +1,10 @@
 const username = "PrasadHelaskar";
-const container = document.getElementById("repo-container");
 
-/* Map repo data → tech tags */
+const featuredContainer = document.getElementById("featured-container");
+const allContainer = document.getElementById("repo-container");
+
+/* ---------------- BADGE LOGIC ---------------- */
+
 function mapTech(repo) {
   const tags = new Set();
 
@@ -21,44 +24,62 @@ function mapTech(repo) {
   return [...tags];
 }
 
-/* Render repo card */
-function renderRepo(repo) {
+function renderCard(repo) {
   const card = document.createElement("div");
   card.className = "project-card";
 
   const badges = mapTech(repo)
-    .map(tag => `<span class="badge">${tag}</span>`)
+    .map(t => `<span class="badge">${t}</span>`)
     .join("");
 
   card.innerHTML = `
     <h3>${repo.name}</h3>
-    <p>${repo.description || "QA / Automation related project."}</p>
+    <p>${repo.description || "QA / Automation project."}</p>
 
     <div class="badges">${badges}</div>
 
     <div class="project-links">
-      <a href="${repo.html_url}" target="_blank">Repo</a>
-      ${repo.homepage ? `<a href="${repo.homepage}" target="_blank">Live</a>` : ""}
+      <a href="${repo.url}" target="_blank">Repo</a>
     </div>
   `;
 
   return card;
 }
 
-/* AUTO SYNC ALL REPOS */
+/* ---------------- FEATURED (from JSON) ---------------- */
+
+fetch("featured.json")
+  .then(res => res.json())
+  .then(pinned => {
+    pinned.forEach(repo => {
+      featuredContainer.appendChild(renderCard(repo));
+    });
+  });
+
+/* ---------------- ALL REPOS ---------------- */
 
 fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`)
   .then(res => res.json())
   .then(repos => {
 
+    const featuredNames = new Set(
+      [...featuredContainer.children].map(el =>
+        el.querySelector("h3").innerText
+      )
+    );
+
     repos
-      .filter(repo => !repo.fork && !repo.archived)
+      .filter(r => !r.fork && !r.archived)
+      .filter(r => !featuredNames.has(r.name))
       .slice(0, 12)
       .forEach(repo => {
-        container.appendChild(renderRepo(repo));
+        allContainer.appendChild(
+          renderCard({
+            name: repo.name,
+            description: repo.description,
+            url: repo.html_url,
+            language: repo.language
+          })
+        );
       });
-  })
-  .catch(() => {
-    container.innerHTML =
-      "<p style='color:#94a3b8'>Unable to load projects currently.</p>";
   });

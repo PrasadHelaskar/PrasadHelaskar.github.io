@@ -1,0 +1,31 @@
+name: Update Featured Repositories
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"   # every 12 hours
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch pinned repos
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: node scripts/fetchPinned.js
+
+      - name: Commit updated featured.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add featured.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update featured repos"
+          git push

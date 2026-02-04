@@ -124,3 +124,40 @@ footer {
   padding: 45px;
   color: #64748b;
 }
+
+/* ===== FEATURED / PINNED GRID STYLE ===== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+.project-card {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.5;
+
+  /* prevent massive tall cards */
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* badges wrap nicely */
+.badges {
+  margin-top: 14px;
+}
+
+/* keep Repo link bottom aligned */
+.project-links {
+  margin-top: auto;
+}

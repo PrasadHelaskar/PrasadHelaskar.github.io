@@ -56,30 +56,33 @@ fetch("featured.json")
     });
   });
 
-/* ---------------- ALL REPOS ---------------- */
+/* ---------------- ALL REPOS (exclude featured) ---------------- */
 
 fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`)
   .then(res => res.json())
   .then(repos => {
 
-    const featuredNames = new Set(
-      [...featuredContainer.children].map(el =>
-        el.querySelector("h3").innerText
-      )
-    );
+    const featuredNames = new Set();
 
-    repos
-      .filter(r => !r.fork && !r.archived)
-      .filter(r => !featuredNames.has(r.name))
-      .slice(0, 12)
-      .forEach(repo => {
-        allContainer.appendChild(
-          renderCard({
-            name: repo.name,
-            description: repo.description,
-            url: repo.html_url,
-            language: repo.language
-          })
-        );
+    // collect pinned names first
+    fetch("featured.json")
+      .then(r => r.json())
+      .then(pinned => {
+        pinned.forEach(p => featuredNames.add(p.name));
+
+        repos
+          .filter(r => !r.fork && !r.archived)
+          .filter(r => !featuredNames.has(r.name))
+          .slice(0, 12)
+          .forEach(repo => {
+            allContainer.appendChild(
+              renderCard({
+                name: repo.name,
+                description: repo.description,
+                url: repo.html_url,
+                language: repo.language
+              })
+            );
+          });
       });
   });

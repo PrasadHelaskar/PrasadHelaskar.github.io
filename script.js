@@ -106,3 +106,4 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
     allContainer.innerHTML =
       "<p style='color:#94a3b8'>Unable to load repositories.</p>";
   });
+

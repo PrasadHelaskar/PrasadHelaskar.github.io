@@ -70,7 +70,7 @@ fetch("featured.json")
 
 /* ---------------- ALL PROJECTS ---------------- */
 
-fetch(`https://api.github.com/users/${username}/repos?per_page=100`)
+fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`)
   .then(res => res.json())
   .then(repos => {
 
@@ -106,5 +106,6 @@ fetch(`https://api.github.com/users/${username}/repos?per_page=100`)
     allContainer.innerHTML =
       "<p style='color:#94a3b8'>Unable to load repositories.</p>";
   });
+
 
 

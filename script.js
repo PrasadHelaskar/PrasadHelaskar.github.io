@@ -17,7 +17,6 @@ function mapTech(repo) {
   if (text.includes("api")) tags.add("API");
   if (text.includes("cicd") || text.includes("pipeline")) tags.add("CI/CD");
   if (text.includes("docker")) tags.add("Docker");
-  if (text.includes("parallel")) tags.add("Parallel");
   if (text.includes("self")) tags.add("Self-Healing");
   if (text.includes("performance")) tags.add("Performance");
 
@@ -106,6 +105,7 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
     allContainer.innerHTML =
       "<p style='color:#94a3b8'>Unable to load repositories.</p>";
   });
+
 
 
 

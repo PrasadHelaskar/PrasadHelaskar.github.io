@@ -315,3 +315,59 @@ footer {
     min-width: 260px;
   }
 }
+
+/* ===== CTA GROUP ALIGNMENT ===== */
+
+.cta-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+/* Mobile stacking */
+@media (max-width: 600px) {
+  .cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-group .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===== RESUME DROPDOWN LIST FIX ===== */
+
+.resume-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;   /* ✅ FORCE VERTICAL LIST */
+
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+
+  min-width: 240px;
+  padding: 6px 0;
+  z-index: 20;
+}
+
+.resume-menu a {
+  display: block;           
+  width: 100%;
+  padding: 12px 18px;
+
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.resume-menu a:hover {
+  background: rgba(56,189,248,0.15);
+}

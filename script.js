@@ -106,19 +106,31 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
       "<p style='color:#94a3b8'>Unable to load repositories.</p>";
   });
 
-/* ===== RESUME DROPDOWN MOBILE SUPPORT ===== */
+/* ===== RESUME DROPDOWN – FIXED ===== */
 
 const resumeDropdown = document.querySelector(".resume-dropdown");
 const resumeBtn = document.querySelector(".resume-btn");
 
-resumeBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  resumeDropdown.classList.toggle("open");
-});
+if (resumeDropdown && resumeBtn) {
 
-// close when clicking outside
-document.addEventListener("click", (e) => {
-  if (!resumeDropdown.contains(e.target)) {
-    resumeDropdown.classList.remove("open");
-  }
-});
+  // Toggle dropdown
+  resumeBtn.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    resumeDropdown.classList.toggle("open");
+  });
+
+  // Close only when clicking OUTSIDE
+  document.addEventListener("mousedown", (e) => {
+    if (!resumeDropdown.contains(e.target)) {
+      resumeDropdown.classList.remove("open");
+    }
+  });
+
+  // Close after selecting resume
+  document.querySelectorAll(".resume-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      resumeDropdown.classList.remove("open");
+    });
+  });
+}

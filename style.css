@@ -303,8 +303,8 @@ footer {
 
 .resume-dropdown.open .resume-menu {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
+  transform: translateY(0);
 }
 
 /* Mobile spacing */

@@ -106,6 +106,19 @@ fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`
       "<p style='color:#94a3b8'>Unable to load repositories.</p>";
   });
 
+/* ===== RESUME DROPDOWN MOBILE SUPPORT ===== */
 
+const resumeDropdown = document.querySelector(".resume-dropdown");
+const resumeBtn = document.querySelector(".resume-btn");
 
+resumeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  resumeDropdown.classList.toggle("open");
+});
 
+// close when clicking outside
+document.addEventListener("click", (e) => {
+  if (!resumeDropdown.contains(e.target)) {
+    resumeDropdown.classList.remove("open");
+  }
+});

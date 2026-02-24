@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "name": "Self_Heal_Framework",
+    "description": "A Python + Selenium self-healing automation framework that automatically repairs broken locators using DOM analysis, and intelligent fallback logic. Includes a smart WebDriver, healing engine, Pytest plugin, and HTML reporting for stable, flake-free UI test automation.",
+    "url": "https://github.com/PrasadHelaskar/Self_Heal_Framework",
+    "language": "Python"
+  },
+  {
+    "name": "adaptive-api-framework",
+    "description": "A modular and extensible API automation framework built using Python and Pytest, designed with clean architecture principles, centralized API client handling, secure authentication, and environment-driven configuration. The framework follows a phased approach and is intended to evolve into a scalable, production-grade solution.",
+    "url": "https://github.com/PrasadHelaskar/adaptive-api-framework",
+    "language": "Python"
+  },
+  {
+    "name": "automation-service-store",
+    "description": "Automated UI test suite for Omnify Service Store using Selenium and Pytest. Implements Page Object Model, supports data-driven and parallel testing, and generates HTML. Configurable for multiple environments for reliable regression testing.",
+    "url": "https://github.com/PrasadHelaskar/automation-service-store",
+    "language": "Python"
+  },
+  {
+    "name": "indee-automation-assignment",
+    "description": "This repository contains the solution I built for the Indee Automation Engineer Assignment. The goal of the assignment was to demonstrate strong automation skills across UI testing, framework design, debugging, and scalability, while reflecting real-world scenarios in a fast-paced streaming platform environment.",
+    "url": "https://github.com/PrasadHelaskar/indee-automation-assignment",
+    "language": "Python"
+  },
+  {
+    "name": "CRM_Model_Automations",
+    "description": "This repository contains a Java + Selenium automation framework built without POM, ideal for lightweight test suites. It includes TestNG integration for structured test execution and cross-browser support (Chrome, Firefox, Edge). The project demonstrates core Selenium concepts—locators, waits, actions, validation",
+    "url": "https://github.com/PrasadHelaskar/CRM_Model_Automations",
+    "language": "Java"
+  },
+  {
+    "name": "automation-framework-playwright",
+    "description": "This repository implements a modern automated testing framework using Playwright, a powerful cross-browser automation library developed by Microsoft. Playwright enables reliable UI testing across Chromium, Firefox. It supports advanced features like auto-waiting, rich selectors, and parallel execution, making it ideal ",
+    "url": "https://github.com/PrasadHelaskar/automation-framework-playwright",
+    "language": "Python"
+  }
+]

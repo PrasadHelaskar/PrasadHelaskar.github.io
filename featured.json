@@ -1,1 +1,8 @@
-[]
+[
+  'Self_Heal_Framework',
+  'adaptive-api-framework',
+  'automation-framework-playwright',
+  'automation-service-store',
+  'indee-automation-assignment',
+  'CRM_Model_Automations'
+]

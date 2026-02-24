@@ -5,8 +5,8 @@ on:
     - cron: "0 */12 * * *"   # every 12 hours
   workflow_dispatch:
   
-  permissions:
-    contents: write
+permissions:
+  contents: write
 
 jobs:
   update:
@@ -38,3 +38,4 @@ jobs:
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/PrasadHelaskar/PrasadHelaskar.github.io.git
       
           git push origin main
+

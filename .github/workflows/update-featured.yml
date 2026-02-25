@@ -2,7 +2,7 @@ name: Update Featured Repositories
 
 on:
   schedule:
-    - cron: "0 */12 * * *"   # every 12 hours
+    # - cron: "0 */12 * * *"   # every 12 hours
   workflow_dispatch:
   
 permissions:
@@ -40,5 +40,6 @@ jobs:
           git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/PrasadHelaskar/PrasadHelaskar.github.io.git
       
           git push origin main
+
 
 

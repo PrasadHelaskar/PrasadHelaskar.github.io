@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentinel | Prasad Helaskar</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #030712;
+      color: #f3f4f6;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #9ca3af;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons a {
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .primary-btn {
+      background: white;
+      color: #111827;
+    }
+
+    .secondary-btn {
+      border: 1px solid #374151;
+      color: #d1d5db;
+      background: transparent;
+    }
+
+    .secondary-btn:hover {
+      background: #111827;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .card p,
+    .card li {
+      color: #d1d5db;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+      margin-bottom: 50px;
+    }
+
+    .feature-box {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .architecture {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 18px;
+      padding: 24px;
+      overflow-x: auto;
+      margin-bottom: 50px;
+    }
+
+    pre {
+      color: #d1d5db;
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+    }
+
+    .footer-link {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .footer-link a {
+      color: #d1d5db;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <h1>🛡️ Sentinel</h1>
+      <p>
+        Sentinel is a lightweight automation intelligence layer designed to monitor CI pipelines,
+        analyze execution logs, detect failures, and deliver actionable insights in real time.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://github.com/prasadhelaskar/sentinel" target="_blank" class="primary-btn">
+          GitHub Repo
+        </a>
+
+        <a href="./index.html" class="secondary-btn">
+          Back to Portfolio
+        </a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>⚠️ Problem</h2>
+        <p>
+          Modern CI/CD pipelines generate huge amounts of logs, but teams often struggle to quickly understand:
+        </p>
+        <ul>
+          <li>Which test failed</li>
+          <li>Why it failed</li>
+          <li>What caused the issue</li>
+          <li>Where debugging should start</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>💡 Solution</h2>
+        <p>
+          Sentinel acts as an observability layer on top of automation systems by converting raw logs into structured,
+          actionable insights.
+        </p>
+      </div>
+    </section>
+
+    <h2 class="section-title">⚙️ Key Features</h2>
+
+    <section class="feature-grid">
+      <div class="feature-box">🚀 Rule-based failure detection</div>
+      <div class="feature-box">📊 Structured log analysis</div>
+      <div class="feature-box">🔔 Slack notifications</div>
+      <div class="feature-box">📦 JSON-based run storage</div>
+      <div class="feature-box">🧩 Extensible analyzer design</div>
+      <div class="feature-box">⚡ CLI integration</div>
+    </section>
+
+    <h2 class="section-title">🏗️ Architecture</h2>
+
+    <section class="architecture">
+      <pre>
+CI Pipeline (GitHub Actions / Jenkins)
+            ↓
+      Test Execution (Pytest)
+            ↓
+        Log Generation
+            ↓
+        Sentinel CLI
+            ↓
+   Rule-Based Analyzer Engine
+            ↓
+ Structured Result (JSON Output)
+            ↓
+ Slack Notifications + Run Storage
+      </pre>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>🔧 Tech Stack</h2>
+        <ul>
+          <li>Python</li>
+          <li>Pytest</li>
+          <li>GitHub Actions</li>
+          <li>Slack Webhooks</li>
+          <li>JSON Storage</li>
+          <li>Logging Framework</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>📣 Example Slack Alert</h2>
+        <pre>
+🚨 Sentinel Alert
+
+Pipeline: Checkout Regression
+Failed Test: test_apply_coupon_invalid_code
+Error Type: AssertionError
+Message: Expected discount banner not displayed
+
+Root Cause Hint:
+Coupon service response was empty.
+        </pre>
+      </div>
+    </section>
+
+    <h2 class="section-title">🔮 Future Scope</h2>
+
+    <section class="feature-grid">
+      <div class="feature-box">🤖 ML-based failure classification</div>
+      <div class="feature-box">🔁 Flaky test detection</div>
+      <div class="feature-box">📈 Dashboard analytics</div>
+      <div class="feature-box">🌐 Multi-repository support</div>
+      <div class="feature-box">⚙️ GitHub Actions plugin</div>
+      <div class="feature-box">🛠️ Jenkins integration</div>
+    </section>
+
+    <div class="footer-link">
+      <a href="./index.html">← Back to Portfolio</a>
+    </div>
+  </div>
+</body>
+</html>

@@ -337,3 +337,88 @@ footer {
     text-align: center;
   }
 }
+
+.project-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 18px;
+  padding: 24px;
+  margin-top: 24px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: #374151;
+}
+
+.project-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.project-subtitle {
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.project-tags span {
+  background: #1f2937;
+  color: #d1d5db;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.project-points {
+  margin: 16px 0;
+  padding-left: 18px;
+  color: #d1d5db;
+}
+
+.project-points li {
+  margin-bottom: 8px;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.primary-btn {
+  background: white;
+  color: #111827;
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}
+
+.secondary-btn {
+  border: 1px solid #374151;
+  color: #d1d5db;
+  background: transparent;
+}
+
+.secondary-btn:hover {
+  background: #1f2937;
+}

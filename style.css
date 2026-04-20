@@ -520,3 +520,10 @@ footer {
 .secondary-btn:hover {
   background: rgba(85, 199, 255, 0.08);
 }
+
+.sentinel-card {
+  margin: 40px auto 0 auto;
+  position: relative;
+  border: 1px solid rgba(80, 180, 255, 0.15);
+  max-width: 380px;
+}

@@ -527,3 +527,50 @@ footer {
   border: 1px solid rgba(80, 180, 255, 0.15);
   max-width: 380px;
 }
+
+.featured-project-section {
+  margin-top: 60px;
+}
+
+.sentinel-card-wide {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  width: 100%;
+  max-width: 100%;
+  align-items: start;
+}
+
+.sentinel-left,
+.sentinel-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.sentinel-right {
+  justify-content: space-between;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  min-width: 190px;
+}
+
+@media (max-width: 900px) {
+  .sentinel-card-wide {
+    grid-template-columns: 1fr;
+  }
+}

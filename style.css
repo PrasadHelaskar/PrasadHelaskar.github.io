@@ -574,3 +574,15 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.sentinel-card-wide .primary-btn,
+.sentinel-card-wide .primary-btn:visited,
+.sentinel-card-wide .primary-btn:hover {
+  color: #ffffff !important;
+}
+
+.sentinel-card-wide .secondary-btn,
+.sentinel-card-wide .secondary-btn:visited,
+.sentinel-card-wide .secondary-btn:hover {
+  color: #d1d5db !important;
+}
